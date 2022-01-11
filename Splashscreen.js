@@ -1,16 +1,18 @@
-import React from 'react'
-import { View, Text, StatusBar, Image } from 'react-native'
+import React, { Component } from 'react'
+import { View, Text, StatusBar, Image, StyleSheet } from 'react-native'
 
 import logo from './assets/icon.png';
 
-function SplashScreen() {
-  return (
-    <View style={styles.container}>
-    <Image source={logo} style={styles.logo} />
-    <Text style={styles.instructions}>RowNative</Text>
-    <StatusBar style="auto" />
-    </View>
-  )
+export default class WorkoutScreen extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+      <Image source={logo} style={styles.logo} />
+      <Text style={styles.instructions}>RowNative</Text>
+      <StatusBar style="auto" />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -31,5 +33,3 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
   },
 });
-
-export default SplashScreen

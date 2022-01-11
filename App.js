@@ -9,6 +9,7 @@ import SettingsScreen from './Settingsscreen'
 import SignInScreen from './Signinscreen'
 import SignUpScreen from './Signupscreen'
 import WorkoutScreen from './Workout'
+import SplashScreen from './Splashscreen'
 
 import rootReducer from './store/store'
 
@@ -22,14 +23,22 @@ const Stack = createNativeStackNavigator();
 
 /*
   Getting isSignedIn directly from the store, defined in './store/userReducer.js'
+  set if to false to see the sign in screen
+  Getting isLoaded directly from the store, defined in './store/workoutReducer.js'
+  set if to true to see the splash screen
   */
 const state = store.getState()
 const isSignedIn = state.userReducer.isSignedIn
+const isLoading = state.workoutReducer.isLoading
 
 
 export default class App extends React.Component {
   render() {
-  return (
+    if (isLoading) {
+      return <SplashScreen />;
+    }
+
+    return (
       isSignedIn ? (
         <Provider store={store} >
         <NavigationContainer>
@@ -51,6 +60,6 @@ export default class App extends React.Component {
         </NavigationContainer>
         </Provider>
       )
-  );
-}
+    );
+  }
 }
