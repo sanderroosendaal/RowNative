@@ -8,6 +8,7 @@ import ProfileScreen from './Profilescreen'
 import SettingsScreen from './Settingsscreen'
 import SignInScreen from './Signinscreen'
 import SignUpScreen from './Signupscreen'
+import WelcomeScreen from './WelcomeScreen'
 import WorkoutScreen from './Workout'
 import SplashScreen from './Splashscreen'
 
@@ -57,8 +58,9 @@ export default class App extends React.Component {
         <Provider store={store} >
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="SignIn" component={SignInScreen} />
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
             <Stack.Screen name="SignUp" component={SignUpScreen} />
+            <Stack.Screen name="SignIn" component={SignInScreen} />
           </Stack.Navigator>
         </NavigationContainer>
         </Provider>

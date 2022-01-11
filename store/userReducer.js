@@ -1,9 +1,7 @@
 const initialState = {
-  isSignedIn: true
+  isSignedIn: false
 }
 
-const userReducer = (state = initialState) => {
+export default function userReducer(state = initialState) {
   return state
 }
-
-export default userReducer
