@@ -44,7 +44,10 @@ export default class App extends React.Component {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Workout" component={WorkoutScreen} />
+            <Stack.Screen
+              name="Details">
+              {(props) => <WorkoutScreen {...props} />}
+            </Stack.Screen>
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Settings" component={SettingsScreen} />
           </Stack.Navigator>

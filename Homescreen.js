@@ -1,29 +1,47 @@
 import React, { Component } from 'react'
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableHighlight,
+  FlatList,
+} from 'react-native'
+
+import WorkoutScreen from './Workout'
 
 import { connect } from 'react-redux'
 
 class HomeScreen extends Component<{}> {
+  navigate = (item) => {
+    const { navigate } = this.props.navigation
+
+    navigate('Details', { item: item })
+  }
+  renderItem = ({ item }) => {
+    return (
+      <TouchableHighlight
+        onPress={() => this.navigate(item)}
+        >
+      <View style={styles.workout}>
+      <Text style={styles.workouttype}>{item.workouttype}</Text>
+      <Text style={styles.name}>{item.name}</Text>
+      <Text style={styles.date}>{item.date} {item.starttime}</Text>
+      <Text style={styles.workoutinfo}>{item.distance}m {item.duration}h</Text>
+      </View>
+      </TouchableHighlight>
+    )
+  }
   render() {
     const { workouts } = this.props
+
     return (
     <View style={styles.container}>
-      <ScrollView
-        keyboardShouldPersistTaps='always'
-        style={styles.workoutsContainer}
-        >
-        {
-          workouts.results.map((workout, index) => (
-            <View style={styles.workout} key={index}>
-              <Text style={styles.workouttype}>{workout.workouttype}</Text>
-              <Text style={styles.name}>{workout.name}</Text>
-              <Text style={styles.date}>{workout.date} {workout.starttime}</Text>
-              <Text style={styles.workoutinfo}>{workout.distance}m {workout.duration}h</Text>
-            </View>
-          )
-        )
-        }
-      </ScrollView>
+      <FlatList
+            data={workouts.results}
+            keyExtractor={(item) => item.id}
+            renderItem={this.renderItem}
+        />
     </View>
   );
   }
