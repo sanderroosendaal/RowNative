@@ -1,32 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import logo from './assets/icon.png';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './Homescreen'
+import ProfileScreen from './Profilescreen'
+import SettingsScreen from './Settingsscreen'
+import SignInScreen from './Signinscreen'
+import SignUpScreen from './Signupscreen'
+import WorkoutScreen from './Workout'
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+let isSignedIn = true
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Image source={logo} style={styles.logo} />
-      <Text style={styles.instructions}>RowNative</Text>
-      <StatusBar style="auto" />
-    </View>
+      isSignedIn ? (
+        <NavigationContainer>
+        <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Workout" component={WorkoutScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Settings" component={SettingsScreen} />
+        </Stack.Navigator>
+        </NavigationContainer>
+      ) : (
+        <NavigationContainer>
+        <Stack.Navigator>
+        <Stack.Screen name="SignIn" component={SignInScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        </Stack.Navigator>
+        </NavigationContainer>
+      )
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: 180,
-    height: 180,
-    marginBottom: 10,
-  },
-  instructions: {
-    color: '#888',
-    fontSize: 18,
-    marginHorizontal: 15,
-  },
-});
+export default App
