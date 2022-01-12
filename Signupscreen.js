@@ -10,7 +10,7 @@ import {
 
 import logo from './assets/icon.png';
 
-
+import theme from './theme'
 
 class SignUpScreen extends Component {
   gotoSignUpForm () {
@@ -21,22 +21,22 @@ class SignUpScreen extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Image source={logo} style={styles.logo} />
-        <Text style={styles.instructions}>RowNative</Text>
+      <View style={theme.container}>
+        <Image source={logo} style={theme.logo} />
+        <Text style={theme.instructions}>RowNative</Text>
         <TouchableHighlight
           onPress={this.gotoSignUpForm}
           underlayColor='#efefef'
-          style={styles.button}
+          style={theme.button}
         >
-          <Text style={styles.text}>Sign Up</Text>
+          <Text style={theme.text}>Sign Up</Text>
         </TouchableHighlight>
         <TouchableHighlight
           onPress={this.gotoSignInForm}
           underlayColor='#efefef'
-          style={styles.button}
+          style={theme.button}
         >
-          <Text style={styles.text}>Sign In</Text>
+          <Text style={theme.text}>Sign In</Text>
         </TouchableHighlight>
       </View>
     )
@@ -44,34 +44,3 @@ class SignUpScreen extends Component {
 }
 
 export default SignUpScreen
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: 180,
-    height: 180,
-    marginBottom: 10,
-  },
-  instructions: {
-    color: '#888',
-    fontSize: 18,
-    marginHorizontal: 15,
-  },
-  button: {
-    alignSelf: 'center',
-    padding: 7,
-    borderColor: '#ededed',
-    borderWidth: 1,
-    borderRadius: 4,
-    marginRight: 5,
-  },
-  text: {
-    color: '#666666'
-  }
-});

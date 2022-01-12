@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { bindActionCreators } from 'redux'
 import {
    View,
    Text,
-   StyleSheet,
+   themeheet,
    TouchableHighlight,
    TextInput,
    TouchableOpacity
@@ -11,82 +11,50 @@ import {
 
 import { connect } from 'react-redux'
 
+import theme from './theme'
 
-class SignInScreen extends Component {
-   updateInput = (key, value) => {
-      this.setState({
-         ...this.state,
-         [key]: value
-      })
+
+function SignInScreen () {
+   const [user, setUser ] = useState('')
+   const [password, setPassword ] = useState('')
+   const [isSignedIn, setSignedIn ] = useState(false)
+
+   useEffect(() => {
+         console.log(user,password,isSignedIn)
+   })
+
+   const login = () => {
+         setSignedIn(true)
+         console.log('logged in')
    }
 
-   login = (user, pass, isSignedIn) => {
-      alert('user name: ' + user + ' password: ' + pass)
-      this.user = ''
-      this.password = ''
-      // now sign in
-   }
-   render() {
-      const { isSignedIn } = this.props
-
-      return (
-         <View style = {styles.container}>
-         <TextInput style = {styles.input}
+   return (
+         <View style = {theme.container}>
+         <TextInput style = {theme.input}
          underlineColorAndroid = "transparent"
          placeholder = "user name"
          placeholderTextColor = "#9a73ef"
          autoCapitalize = "none"
-         onChangeText = {value => this.updateInput('user', value)}/>
+         onChangeText = {value => setUser(value)}/>
 
-         <TextInput style = {styles.input}
+         <TextInput style = {theme.input}
          secureTextEntry={true}
          underlineColorAndroid = "transparent"
          placeholder = "Password"
          placeholderTextColor = "#9a73ef"
          autoCapitalize = "none"
-         onChangeText = {value => this.updateInput('password', value)}/>
+         onChangeText = {value => setPassword(value)}/>
 
          <TouchableOpacity
-         style = {styles.submitButton}
-         onPress = {
-            () => this.login(this.state.user, this.state.password, isSignedIn)
-         }>
-         <Text style = {styles.submitButtonText}> Submit </Text>
+         style = {theme.button}
+         onPress = {() => login()}>
+         <Text style = {theme.buttontext}> Sign In </Text>
          </TouchableOpacity>
          </View>
       )
    }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: 180,
-    height: 180,
-    marginBottom: 10,
-  },
-  instructions: {
-    color: '#888',
-    fontSize: 18,
-    marginHorizontal: 15,
-  },
-  button: {
-    alignSelf: 'center',
-    padding: 7,
-    borderColor: '#ededed',
-    borderWidth: 1,
-    borderRadius: 4,
-    marginRight: 5,
-  },
-  text: {
-    color: '#666666'
-  }
-});
+
 
 const mapStateToProps = (state) => ({
   isSignedIn: state.userReducer.isSignedIn

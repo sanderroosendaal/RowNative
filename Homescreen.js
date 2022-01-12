@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 
 import WorkoutScreen from './Workout'
+import theme from './theme'
 
 import { connect } from 'react-redux'
 
@@ -24,10 +25,10 @@ class HomeScreen extends Component<{}> {
         onPress={() => this.navigate(item)}
         >
       <View style={styles.workout}>
-      <Text style={styles.workouttype}>{item.workouttype}</Text>
-      <Text style={styles.name}>{item.name}</Text>
-      <Text style={styles.date}>{item.date} {item.starttime}</Text>
-      <Text style={styles.workoutinfo}>{item.distance}m {item.duration}h</Text>
+      <Text style={theme.workouttype}>{item.workouttype}</Text>
+      <Text style={theme.name}>{item.name}</Text>
+      <Text style={theme.date}>{item.date} {item.starttime}</Text>
+      <Text style={theme.workoutinfo}>{item.distance}m {item.duration}h</Text>
       </View>
       </TouchableHighlight>
     )
@@ -36,7 +37,7 @@ class HomeScreen extends Component<{}> {
     const { workouts } = this.props
 
     return (
-    <View style={styles.container}>
+    <View style={theme.container}>
       <FlatList
             data={workouts.results}
             keyExtractor={(item) => item.id}
@@ -49,36 +50,14 @@ class HomeScreen extends Component<{}> {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   workoutsContainer: {
     flex: 1,
-  },
-  title: {
-    paddingTop: 30,
-    paddingBottom: 20,
-    fontSize: 20,
-    textAlign: 'center',
   },
   workout: {
     padding: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd'
   },
-  name: {
-    fontSize: 18,
-  },
-  date: {
-    fontSize: 14,
-    color: '#999'
-  },
-  workouttype: {
-    fontSize: 14,
-  },
-  workoutinfo: {
-    fontSize: 14,
-  }
 })
 
 const mapStateToProps = (state) => ({
