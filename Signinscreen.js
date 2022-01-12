@@ -18,20 +18,12 @@ import userSignIn from './actions'
 function SignInScreen () {
    const [user, setUser ] = useState('')
    const [password, setPassword ] = useState('')
-   const [isSignedIn, setSignedIn ] = useState(false)
-   const is = useSelector(state => state.userReducer.isSignedIn)
    const dispatch = useDispatch();
 
-   useEffect(() => {
-         console.log(user,password,isSignedIn)
-         console.log(is)
-   })
 
    const login = () => {
-         setSignedIn(true)
          dispatch(userSignIn())
          console.log('logged in')
-         console.log(is)
    }
 
    return (
@@ -59,7 +51,5 @@ function SignInScreen () {
          </View>
       )
    }
-
-
 
 export default SignInScreen
