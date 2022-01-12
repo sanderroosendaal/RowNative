@@ -22,22 +22,7 @@ class SignUpScreen extends Component {
   render() {
     return (
       <View style={theme.container}>
-        <Image source={logo} style={theme.logo} />
-        <Text style={theme.instructions}>RowNative</Text>
-        <TouchableHighlight
-          onPress={this.gotoSignUpForm}
-          underlayColor='#efefef'
-          style={theme.button}
-        >
-          <Text style={theme.text}>Sign Up</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={this.gotoSignInForm}
-          underlayColor='#efefef'
-          style={theme.button}
-        >
-          <Text style={theme.text}>Sign In</Text>
-        </TouchableHighlight>
+        <Text style={[{alignSelf: 'center'},theme.instructions]}>Sign Up Screen</Text>
       </View>
     )
   }

@@ -16,8 +16,10 @@ import { connect } from 'react-redux'
 
 
 class WelcomeScreen extends Component {
-  gotoSignUpForm () {
+  gotoSignUpForm = () => {
     console.log("Sign Up Form requested")
+    const { navigate } = this.props.navigation
+    navigate('SignUp')
   }
   gotoSignInForm = () => {
     const { navigate } = this.props.navigation
