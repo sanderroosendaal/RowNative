@@ -9,23 +9,29 @@ import {
    TouchableOpacity
 } from 'react-native'
 
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 
 import theme from './theme'
 
+import userSignIn from './actions'
 
 function SignInScreen () {
    const [user, setUser ] = useState('')
    const [password, setPassword ] = useState('')
    const [isSignedIn, setSignedIn ] = useState(false)
+   const is = useSelector(state => state.userReducer.isSignedIn)
+   const dispatch = useDispatch();
 
    useEffect(() => {
          console.log(user,password,isSignedIn)
+         console.log(is)
    })
 
    const login = () => {
          setSignedIn(true)
+         dispatch(userSignIn())
          console.log('logged in')
+         console.log(is)
    }
 
    return (
@@ -56,8 +62,4 @@ function SignInScreen () {
 
 
 
-const mapStateToProps = (state) => ({
-  isSignedIn: state.userReducer.isSignedIn
-})
-
-export default connect(mapStateToProps) (SignInScreen)
+export default SignInScreen

@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => ({
-  workouts: state.workoutReducer.workouts
+  workouts: state.workoutReducer.workouts,
+  isSignedIn: state.userReducer.isSignedIn
 })
 
 export default connect(mapStateToProps) (HomeScreen)
