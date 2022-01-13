@@ -24,7 +24,7 @@ function SignInScreen () {
    const login = () => {
          dispatch(userSignIn())
          console.log('User:', user)
-         console.log('Password', password)
+         console.log('Password', password) 
          console.log('logged in')
    }
 

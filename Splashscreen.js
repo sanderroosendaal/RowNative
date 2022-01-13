@@ -10,7 +10,7 @@ export default class WorkoutScreen extends Component {
       <View style={theme.container}>
       <View style={{flex:1, justifyContent: 'center'}}>
       <Image source={logo} style={theme.logo} />
-      <Text style={[{alignSelf:'center'},theme.instructions]}>RowNative</Text>
+      <Text style={[{alignSelf:'center'},theme.instructions]}>RowNative</Text> 
       </View>
       <StatusBar style="auto" />
       </View>
