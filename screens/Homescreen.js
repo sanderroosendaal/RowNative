@@ -12,12 +12,12 @@ import theme from '../theme'
 import { connect } from 'react-redux'
 
 class HomeScreen extends Component {
-  navigate(item) {
+  navigate = (item) => {
     const { navigate } = this.props.navigation
 
     navigate('Details', { item: item })
   }
-  renderItem({ item }) {
+  renderItem = ({ item }) => {
     return (
       <TouchableHighlight onPress={() => this.navigate(item)}>
         <View style={styles.workout}>

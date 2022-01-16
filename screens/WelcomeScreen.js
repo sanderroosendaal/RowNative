@@ -1,20 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { View, Text, Image, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
 
 import logo from '../assets/icon.png'
 import theme from '../theme'
 
-class WelcomeScreen extends Component {
-  gotoSignUpForm() {
+class WelcomeScreen extends React.Component {
+  gotoSignUpForm = () => {
     console.log('Sign Up Form requested')
-    const { navigate } = this.props.navigation
-    navigate('SignUp')
+    this.props.navigation.navigate('SignUp')
   }
 
-  gotoSignInForm() {
-    const { navigate } = this.props.navigation
-    navigate('SignIn')
+  gotoSignInForm = () => {
+    this.props.navigation.navigate('SignIn')
   }
 
   render() {

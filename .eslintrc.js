@@ -1,16 +1,43 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
+  'env': {
+    'browser': true,
+    'es2021': true,
+    'node': true
   },
-  extends: [
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
+  'extends': [
+    'eslint:recommended',
+    'plugin:react/recommended'
   ],
-  plugins: ['prettier'],
-  // add your custom rules here
-  rules: {},
+  'parser': '@babel/eslint-parser',
+  'parserOptions': {
+    'ecmaFeatures': {
+      'jsx': true
+    },
+    'ecmaVersion': 12,
+    'sourceType': 'module'
+  },
+  'plugins': [
+    'react'
+  ],
+  'rules': {
+    'indent': [
+      'error',
+      2
+    ],
+    'linebreak-style': [
+      'error',
+      'unix'
+    ],
+    'quotes': [
+      'error',
+      'single'
+    ],
+    'semi': [
+      'error',
+      'never'
+    ],
+    'react/prop-types': [
+      'off'
+    ],
+  }
 }
