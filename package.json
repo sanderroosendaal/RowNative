@@ -13,7 +13,7 @@
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "android": "^0.0.8",
-    "expo": "^44.0.3",
+    "expo": "^44.0.5",
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "^1.2.0",
     "ngrok": "^4.2.2",
