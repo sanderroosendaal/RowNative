@@ -1,11 +1,11 @@
 const initialState = {
-  isSignedIn: false
+  isSignedIn: false,
 }
 
 export default function userReducer(state = initialState, action) {
   if (action.type === 'SIGN_IN') {
     return {
-      isSignedIn: true
+      isSignedIn: true,
     }
   }
   return state

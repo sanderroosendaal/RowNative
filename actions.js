@@ -1,5 +1,5 @@
 export default function userSignIn() {
   return {
-    type: 'SIGN_IN'
+    type: 'SIGN_IN',
   }
 }
