@@ -5,7 +5,7 @@ import userReducer from './userReducer'
 
 const rootReducer = combineReducers({
   workoutReducer,
-  userReducer
+  userReducer,
 })
 
 export default rootReducer
