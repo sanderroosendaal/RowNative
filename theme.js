@@ -1,7 +1,4 @@
-
-import {
-  StyleSheet,
-} from 'react-native'
+import { StyleSheet } from 'react-native'
 
 const theme = StyleSheet.create({
   container: {
@@ -26,7 +23,7 @@ const theme = StyleSheet.create({
   },
   date: {
     fontSize: 14,
-    color: '#999'
+    color: '#999',
   },
   workoutTitle: {
     paddingVertical: 10,
@@ -55,7 +52,7 @@ const theme = StyleSheet.create({
     width: 180,
     height: 180,
     marginBottom: 10,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   instructions: {
     color: '#888',
@@ -71,7 +68,7 @@ const theme = StyleSheet.create({
     marginRight: 5,
   },
   text: {
-    color: '#666666'
+    color: '#666666',
   },
   buttontext: {
     color: 'black',
