@@ -13,19 +13,6 @@ export default class WorkoutScreen extends React.Component {
     this.workout = props.route.params.item
   }
 
-  renderDataRow(label, value) {
-    return (
-      <View style={theme.tableRow}>
-        <View style={theme.tableCellLabel}>
-          <Text style={theme.info}>{label}</Text>
-        </View>
-        <View style={theme.tableCell}>
-          <Text style={theme.value}>{value}</Text>
-        </View>
-      </View>
-    )
-  }
-
   render() {
     return (
       <View style={theme.container}>

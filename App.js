@@ -32,7 +32,7 @@ function BeginScreen() {
           <Stack.Screen
             name="Details"
             component={WorkoutScreen}
-            options={({ route, navigation }) => ({
+            options={({ route }) => ({
               workout: route.params.item,
             })}
           />

@@ -29,7 +29,7 @@ const theme = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 1,
     borderColor: '#333',
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 20,
   },
   workouttype: {
@@ -82,18 +82,19 @@ const theme = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     flexDirection: 'row',
-    marginBottom: 2,
+    marginBottom: 5,
   },
   tableCell: {
     flex: 1,
     alignSelf: 'stretch',
-    padding: 2,
+    padding: 5,
   },
   tableCellLabel: {
     flex: 1,
     alignSelf: 'stretch',
-    padding: 2,
-    backgroundColor: '#ccc',
+    padding: 5,
+    backgroundColor: '#ddd',
+    borderRadius: 4,
   },
 })
 
