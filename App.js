@@ -7,7 +7,7 @@ import SettingsScreen from './screens/Settingsscreen'
 import SignInScreen from './screens/Signinscreen'
 import SignUpScreen from './screens/Signupscreen'
 import WelcomeScreen from './screens/WelcomeScreen'
-import WorkoutScreen from './screens/Workout'
+import WorkoutScreen from './screens/WorkoutScreen'
 import SplashScreen from './screens/Splashscreen'
 
 import rootReducer from './store/store'
@@ -29,9 +29,13 @@ function BeginScreen() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details">
-            {(props) => <WorkoutScreen {...props} />}
-          </Stack.Screen>
+          <Stack.Screen
+            name="Details"
+            component={WorkoutScreen}
+            options={({ route }) => ({
+              workout: route.params.item,
+            })}
+          />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="Settings" component={SettingsScreen} />
         </Stack.Navigator>
