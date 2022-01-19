@@ -6,7 +6,11 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint:js": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "lint-fix:js": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "lint": "npm run lint:js",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.0.9",
@@ -27,8 +31,21 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/eslint-parser": "^7.16.5",
+    "@types/jest": "^27.4.0",
+    "@types/react": "^17.0.38",
+    "@types/react-native": "^0.66.12",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.28.0",
     "metro": "^0.66.2",
-    "metro-core": "^0.66.2"
+    "metro-core": "^0.66.2",
+    "prettier": "^2.1.2",
+    "typescript": "^4.5.4"
   },
   "private": true
 }
