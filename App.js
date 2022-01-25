@@ -24,7 +24,7 @@ function WorkoutStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="Workouts"
         component={HomeScreen} />
       <Stack.Screen
         name="Details"
