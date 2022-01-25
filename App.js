@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/Homescreen'
 import ProfileScreen from './screens/Profilescreen'
 import SettingsScreen from './screens/Settingsscreen'
@@ -16,6 +17,35 @@ import { Provider, useSelector } from 'react-redux'
 import { createStore } from 'redux'
 
 const Stack = createNativeStackNavigator()
+const Tab = createBottomTabNavigator();
+
+
+function StackScreens() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen} />
+      <Stack.Screen
+        name="Details"
+        component={WorkoutScreen}
+        options={({ route }) => ({
+          workout: route.params.item,
+        })}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function SignInScreens() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="SignIn" component={SignInScreen} />
+    </Stack.Navigator>
+  );
+}
 
 function BeginScreen() {
   const workouts = useSelector((state) => state.workoutReducer.workouts)
@@ -27,29 +57,17 @@ function BeginScreen() {
   if (user.isSignedIn) {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen
-            name="Details"
-            component={WorkoutScreen}
-            options={({ route }) => ({
-              workout: route.params.item,
-            })}
-          />
-          <Stack.Screen name="Profile" component={ProfileScreen} />
-          <Stack.Screen name="Settings" component={SettingsScreen} />
-        </Stack.Navigator>
+      <Tab.Navigator>
+      <Tab.Screen  name="Workouts" options={{ headerShown: false }} component={StackScreens} />
+      <Tab.Screen  name="Settings" component={SettingsScreen} />
+    </Tab.Navigator>
       </NavigationContainer>
     )
   }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-      </Stack.Navigator>
+      <SignInScreens />
     </NavigationContainer>
   )
 }
