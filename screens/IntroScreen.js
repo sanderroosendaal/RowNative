@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { View, Text, StatusBar, Image, SafeAreaView } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 
@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import logo from '../assets/icon.png'
 import theme from '../theme'
 
-import finishIntro from '../actions'
+import * as myActions from '../actions'
 
 const slides = [
   {
@@ -26,14 +26,12 @@ const slides = [
   },
 ];
 
-const dispatch = useDispatch()
+function IntroScreen() {
+  const [user, setUser] = useState('')
+  const [password, setPassword] = useState('')
+  const dispatch = useDispatch()
 
-const introDone = () => {
-  dispatch(finishIntro())
-}
-
-export default class IntroScreen extends Component {
-  _renderItem = ({ item }) => {
+  const _renderItem = ({ item }) => {
     return (
       <View
         style={{
@@ -48,21 +46,26 @@ export default class IntroScreen extends Component {
       </View>
     );
   }
-  _onDone = () => {
+
+  const _onDone = () => {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
-    introDone();
+    dispatch(myActions.finishIntro())
+    console.log('Intro Done')
+    console.log(user.isSignedIn)
+    console.log(user.showRealApp)
   }
-  render() {
-    return (
-      <AppIntroSlider
-        renderItem={this._renderItem}
-        data={slides}
-        onDone={this._onDone}
-        bottomButton
-        showSkipButton
-        showPrevButton
-        />
-    )
-  }
+
+  return (
+    <AppIntroSlider
+      renderItem={_renderItem}
+      data={slides}
+      onDone={_onDone}
+      bottomButton
+      showSkipButton
+      showPrevButton
+      />
+  )
 }
+
+export default IntroScreen

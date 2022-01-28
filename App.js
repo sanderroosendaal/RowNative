@@ -21,10 +21,8 @@ const Stack = createNativeStackNavigator()
 function BeginScreen() {
   const workouts = useSelector((state) => state.workoutReducer.workouts)
   const user = useSelector((state) => state.userReducer)
-  if (!user.showRealApp) {
-    return <IntroScreen />
-  }
-
+  console.log('Signed In', user.isSignedIn)
+  console.log('Skip Intro', user.showRealApp)
   if (user.isSignedIn) {
     return (
       <NavigationContainer>
@@ -42,6 +40,10 @@ function BeginScreen() {
         </Stack.Navigator>
       </NavigationContainer>
     )
+  }
+
+  if (!user.showRealApp) {
+    return <IntroScreen />
   }
 
   return (
