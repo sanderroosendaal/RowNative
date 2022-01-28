@@ -10,6 +10,25 @@ const theme = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
+  slide: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+  },
+  image: {
+    width: 320,
+    height: 320,
+    marginVertical: 32,
+  },
+  buttonCircle: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .2)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   title: {
     paddingTop: 30,
     paddingBottom: 20,
@@ -66,6 +85,10 @@ const theme = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     marginRight: 5,
+  },
+  introtext: {
+    color: 'blue',
+    alignSelf: 'center',
   },
   text: {
     color: '#666666',

@@ -3,3 +3,9 @@ export default function userSignIn() {
     type: 'SIGN_IN',
   }
 }
+
+export function finishIntro() {
+  return {
+    type: 'FINISH_INTRO'
+  }
+}

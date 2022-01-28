@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
 import HomeScreen from './screens/Homescreen'
 import ProfileScreen from './screens/Profilescreen'
 import SettingsScreen from './screens/Settingsscreen'
@@ -8,7 +9,7 @@ import SignInScreen from './screens/Signinscreen'
 import SignUpScreen from './screens/Signupscreen'
 import WelcomeScreen from './screens/WelcomeScreen'
 import WorkoutScreen from './screens/WorkoutScreen'
-import SplashScreen from './screens/Splashscreen'
+import IntroScreen from './screens/IntroScreen'
 
 import rootReducer from './store/store'
 
@@ -20,8 +21,8 @@ const Stack = createNativeStackNavigator()
 function BeginScreen() {
   const workouts = useSelector((state) => state.workoutReducer.workouts)
   const user = useSelector((state) => state.userReducer)
-  if (workouts.isLoading) {
-    return <SplashScreen />
+  if (!user.showRealApp) {
+    return <IntroScreen />
   }
 
   if (user.isSignedIn) {
