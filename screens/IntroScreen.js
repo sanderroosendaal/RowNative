@@ -1,10 +1,9 @@
-import React, { Component, useState } from 'react'
-import { View, Text, StatusBar, Image, SafeAreaView } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, Image, SafeAreaView } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 
 import { useDispatch } from 'react-redux'
 
-import logo from '../assets/icon.png'
 import theme from '../theme'
 
 import * as myActions from '../actions'
@@ -24,11 +23,10 @@ const slides = [
     image: require('../assets/double.jpg'),
     backgroundColor: '#febe29',
   },
-];
+]
 
 function IntroScreen() {
-  const [user, setUser] = useState('')
-  const [password, setPassword] = useState('')
+  const user = useState('')
   const dispatch = useDispatch()
 
   const _renderItem = ({ item }) => {
@@ -44,7 +42,7 @@ function IntroScreen() {
           <Text style={theme.introtext}>{item.text}</Text>
         </SafeAreaView>
       </View>
-    );
+    )
   }
 
   const _onDone = () => {
@@ -64,7 +62,7 @@ function IntroScreen() {
       bottomButton
       showSkipButton
       showPrevButton
-      />
+    />
   )
 }
 

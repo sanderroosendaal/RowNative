@@ -19,7 +19,6 @@ import { createStore } from 'redux'
 const Stack = createNativeStackNavigator()
 
 function BeginScreen() {
-  const workouts = useSelector((state) => state.workoutReducer.workouts)
   const user = useSelector((state) => state.userReducer)
   console.log('Signed In', user.isSignedIn)
   console.log('Skip Intro', user.showRealApp)
