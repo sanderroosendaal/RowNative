@@ -34,7 +34,7 @@
     "@babel/eslint-parser": "^7.16.5",
     "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
-    "@types/react-native": "^0.66.12",
+    "@types/react-native": "^0.66.15",
     "@types/react-test-renderer": "^17.0.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
