@@ -30,7 +30,7 @@
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.16.12",
     "@babel/eslint-parser": "^7.16.5",
     "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
