@@ -63,8 +63,6 @@ function SignInScreens() {
 
 function BeginScreen() {
   const user = useSelector((state) => state.userReducer)
-  console.log('Signed In', user.isSignedIn)
-  console.log('Skip Intro', user.showRealApp)
   if (user.isSignedIn) {
     return (
       <NavigationContainer>

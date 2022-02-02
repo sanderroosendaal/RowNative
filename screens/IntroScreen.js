@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text, Image, SafeAreaView } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 
@@ -26,7 +26,6 @@ const slides = [
 ]
 
 function IntroScreen() {
-  const user = useState('')
   const dispatch = useDispatch()
 
   const _renderItem = ({ item }) => {
@@ -49,9 +48,6 @@ function IntroScreen() {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
     dispatch(myActions.finishIntro())
-    console.log('Intro Done')
-    console.log(user.isSignedIn)
-    console.log(user.showRealApp)
   }
 
   return (
