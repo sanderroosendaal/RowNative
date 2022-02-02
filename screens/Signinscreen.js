@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 
 import theme from '../theme'
 
-import userSignIn from '../actions'
+import * as myActions from '../actions'
 
 function SignInScreen() {
   const [user, setUser] = useState('')
@@ -13,7 +13,7 @@ function SignInScreen() {
   const dispatch = useDispatch()
 
   const login = () => {
-    dispatch(userSignIn())
+    dispatch(myActions.userSignIn())
     console.log('User:', user)
     console.log('Password', password)
     console.log('logged in')

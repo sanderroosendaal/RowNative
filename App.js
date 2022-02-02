@@ -9,7 +9,7 @@ import SignInScreen from './screens/Signinscreen'
 import SignUpScreen from './screens/Signupscreen'
 import WelcomeScreen from './screens/WelcomeScreen'
 import WorkoutScreen from './screens/WorkoutScreen'
-import SplashScreen from './screens/Splashscreen'
+import IntroScreen from './screens/IntroScreen'
 
 import rootReducer from './store/store'
 
@@ -62,12 +62,7 @@ function SignInScreens() {
 }
 
 function BeginScreen() {
-  const workouts = useSelector((state) => state.workoutReducer.workouts)
   const user = useSelector((state) => state.userReducer)
-  if (workouts.isLoading) {
-    return <SplashScreen />
-  }
-
   if (user.isSignedIn) {
     return (
       <NavigationContainer>
@@ -77,6 +72,10 @@ function BeginScreen() {
         </Tab.Navigator>
       </NavigationContainer>
     )
+  }
+
+  if (!user.showRealApp) {
+    return <IntroScreen />
   }
 
   return (
