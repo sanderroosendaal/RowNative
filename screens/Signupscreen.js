@@ -10,16 +10,11 @@ import SignUpTwo from './Signuptwo'
 
 import theme from '../theme'
 
-const steps = [
-  { name: SignUpOne, component: <SignUpOne /> },
-  { name: SignUpTwo, component: <SignUpTwo /> },
-]
-
 function MultiStepForm(props) {
   const [page, setPage] = useState(parseInt(props.page))
   const [firstName, setFirstName] = useState('First Name')
   const [lastName, setLastName] = useState('Last Name')
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState('username')
   const [checked, setChecked] = useState(false)
   const dispatch = useDispatch()
 
@@ -35,15 +30,17 @@ function MultiStepForm(props) {
   return (
     <View>
       { page === 1 && <SignUpOne
+        username={user}
         firstName={firstName}
         lastName={lastName}
+        setUser={setUser}
         setFirstName={setFirstName}
         setLastName={setLastName}
-        />}
+      />}
       { page === 2 && <SignUpTwo
         checked={checked}
         setChecked={setChecked}
-        />}
+      />}
       { page != 2 && <TouchableOpacity style={theme.button} onPress={() => setPage(page + 1)}>
         <Text style={theme.buttontext}> Next </Text>
       </TouchableOpacity>}
@@ -62,7 +59,7 @@ function SignUpScreen() {
     <View style={theme.container}>
       <MultiStepForm
         page="1"
-        />
+      />
     </View>
   )
 }

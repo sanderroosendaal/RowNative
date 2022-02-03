@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, TextInput } from 'react-native'
 
 import theme from '../theme'
@@ -22,6 +22,14 @@ function SignUpOne(props) {
         placeholderTextColor="#9a73ef"
         autoCapitalize="words"
         onChangeText={(value) => props.setLastName(value)}
+      />
+      <TextInput
+        style={theme.input}
+        underlineColorAndroid="transparent"
+        placeholder={props.username}
+        placeholderTextColor="#9a73ef"
+        autoCapitalize="words"
+        onChangeText={(value) => props.setUser(value)}
       />
     </View>
   )

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, CheckBox } from 'react-native'
+import React from 'react'
+import { View, Text, CheckBox } from 'react-native'
 
 import theme from '../theme'
 
