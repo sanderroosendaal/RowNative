@@ -13,6 +13,8 @@ function SignInScreen() {
   const dispatch = useDispatch()
 
   const login = () => {
+    console.log(user)
+    console.log(password)
     dispatch(myActions.userSignIn())
   }
 

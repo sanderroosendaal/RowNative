@@ -119,6 +119,12 @@ const theme = StyleSheet.create({
     backgroundColor: '#ddd',
     borderRadius: 4,
   },
+  prevStyle: {
+    backgroundColor: '#33c3f0'
+  },
+  nextStyle: {
+    backgroundColor: '#33c3f0'
+  }
 })
 
 export default theme
