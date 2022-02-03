@@ -59,6 +59,7 @@ const theme = StyleSheet.create({
   },
   input: {
     padding: 5,
+    backgroundColor: '#ccc'
   },
   info: {
     fontSize: 14,

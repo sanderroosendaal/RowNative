@@ -12,9 +12,10 @@ import theme from '../theme'
 
 function MultiStepForm(props) {
   const [page, setPage] = useState(parseInt(props.page))
-  const [firstName, setFirstName] = useState('First Name')
-  const [lastName, setLastName] = useState('Last Name')
-  const [user, setUser] = useState('username')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [user, setUser] = useState('')
+  const [email, setEmail] = useState('')
   const [checked, setChecked] = useState(false)
   const dispatch = useDispatch()
 
@@ -34,9 +35,11 @@ function MultiStepForm(props) {
         user,
         firstName,
         lastName,
+        email,
         setUser,
         setFirstName,
         setLastName,
+        setEmail
       }
     },
     {
