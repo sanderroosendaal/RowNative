@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 
+import { useDispatch } from 'react-redux'
+import * as myActions from '../actions'
+
 import SignUpOne from './Signupone'
 import SignUpTwo from './Signuptwo'
 
@@ -18,13 +21,15 @@ function MultiStepForm(props) {
   const [lastName, setLastName] = useState('Last Name')
   const [user, setUser] = useState('')
   const [checked, setChecked] = useState(false)
+  const dispatch = useDispatch()
 
   const registerUser = () => {
     console.log('Registering user')
-    payload = {
+    const payload = {
       firstName: {firstName},
       lastName: {lastName}
     }
+    dispatch(myActions.registerUser(payload))
   }
 
   return (

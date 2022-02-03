@@ -9,3 +9,10 @@ export function finishIntro() {
     type: 'FINISH_INTRO'
   }
 }
+
+export function registerUser(payload) {
+  return {
+    type: 'REGISTER_USER',
+    payload: payload
+    }
+}

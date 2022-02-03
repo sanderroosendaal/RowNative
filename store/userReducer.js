@@ -14,5 +14,13 @@ export default function userReducer(state = initialState, action) {
       showRealApp: true,
     }
   }
+  if (action.type === 'REGISTER_USER') {
+    // Do something with payload
+    console.log(action.payload)
+    console.log(action.payload.firstName)
+    return {
+      isSignedIn: true,
+    }
+  }
   return state
 }
