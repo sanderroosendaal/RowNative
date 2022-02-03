@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
+import { useValidation } from 'react-simple-form-validator'
+
 
 import { useDispatch } from 'react-redux'
 import * as myActions from '../actions'
@@ -18,6 +20,30 @@ function MultiStepForm(props) {
   const [email, setEmail] = useState('')
   const [checked, setChecked] = useState(false)
   const dispatch = useDispatch()
+
+  const { isFieldInError, getErrorsInField, isFormValid } =
+    useValidation({
+      fieldRules: {
+        firstName: { minlength: 3, required: true },
+        lastName: { minlength: 3, required: true },
+        email: { email: true },
+        user: { minlength: 3, required: true },
+      },
+      state: {
+        firstName,
+        lastName,
+        email,
+        user },
+    })
+
+
+  const nextButton = () => {
+    setPage(page + 1)
+  }
+
+  const previousButton = () => {
+    setPage(page - 1)
+  }
 
   const registerUser = () => {
     console.log('Registering user')
@@ -39,7 +65,9 @@ function MultiStepForm(props) {
         setUser,
         setFirstName,
         setLastName,
-        setEmail
+        setEmail,
+        isFieldInError,
+        getErrorsInField,
       }
     },
     {
@@ -55,10 +83,10 @@ function MultiStepForm(props) {
   return (
     <View>
       {React.createElement(steps[page].screen,steps[page].props)}
-      { page > 0 && <TouchableOpacity style={theme.button} onPress={() => setPage(page - 1)}>
+      { page > 0 && <TouchableOpacity style={theme.button} onPress={() => previousButton()}>
         <Text style={theme.buttontext}> Previous </Text>
       </TouchableOpacity>}
-      { page < steps.length - 1 && <TouchableOpacity style={theme.button} onPress={() => setPage(page + 1)}>
+      { page < steps.length - 1 && <TouchableOpacity style={theme.button} onPress={() => nextButton()}>
         <Text style={theme.buttontext}> Next </Text>
       </TouchableOpacity>}
       { page === steps.length - 1 && <TouchableOpacity style={theme.button} onPress={() => registerUser()}>

@@ -5973,6 +5973,11 @@ react-refresh@^0.4.0:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.4.3.tgz"
   integrity sha512-Hwln1VNuGl/6bVwnd0Xdn1e84gT/8T9aYNL+HAKDArLCS7LWjwr7StE30IEYbIkx0Vi3vs+coQxe+SQDbGbbpA==
 
+react-simple-form-validator@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-simple-form-validator/-/react-simple-form-validator-0.3.0.tgz#ccb0acd1965587f13a2c0fd57494c2e6fb6a4a29"
+  integrity sha512-1DQixj2HzQXUMRpu622tWP8uiF8/LOWv6zl4WMTfS6wp8l7bfsvfwIFBdUmHYRIyNo9IQ19oPVDhys09M+69nw==
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
