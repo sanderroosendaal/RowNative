@@ -7,7 +7,6 @@ import theme from '../theme'
 
 class WelcomeScreen extends React.Component {
   gotoSignUpForm = () => {
-    console.log('Sign Up Form requested')
     this.props.navigation.navigate('SignUp')
   }
 
