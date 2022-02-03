@@ -3,28 +3,25 @@ import { View, TextInput } from 'react-native'
 
 import theme from '../theme'
 
-function SignUpOne() {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [user, setUser] = useState('')
+function SignUpOne(props) {
 
   return (
     <View style={theme.container}>
       <TextInput
         style={theme.input}
         underlineColorAndroid="transparent"
-        placeholder="First Name"
+        placeholder={props.firstName}
         placeholderTextColor="#9a73ef"
         autoCapitalize="words"
-        onChangeText={(value) => setFirstName(value)}
+        onChangeText={(value) => props.setFirstName(value)}
       />
       <TextInput
         style={theme.input}
         underlineColorAndroid="transparent"
-        placeholder="Last Name"
+        placeholder={props.lastName}
         placeholderTextColor="#9a73ef"
         autoCapitalize="words"
-        onChangeText={(value) => setLastName(value)}
+        onChangeText={(value) => props.setLastName(value)}
       />
     </View>
   )

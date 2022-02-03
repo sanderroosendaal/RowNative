@@ -14,14 +14,36 @@ const steps = [
 
 function MultiStepForm(props) {
   const [page, setPage] = useState(parseInt(props.page))
+  const [firstName, setFirstName] = useState('First Name')
+  const [lastName, setLastName] = useState('Last Name')
+  const [user, setUser] = useState('')
+  const [checked, setChecked] = useState(false)
 
+  const registerUser = () => {
+    console.log('Registering user')
+    payload = {
+      firstName: {firstName},
+      lastName: {lastName}
+    }
+  }
 
   return (
     <View>
-      { page === 1 && <SignUpOne />}
-      { page === 2 && <SignUpTwo />}
+      { page === 1 && <SignUpOne
+        firstName={firstName}
+        lastName={lastName}
+        setFirstName={setFirstName}
+        setLastName={setLastName}
+        />}
+      { page === 2 && <SignUpTwo
+        checked={checked}
+        setChecked={setChecked}
+        />}
       { page != 2 && <TouchableOpacity style={theme.button} onPress={() => setPage(page + 1)}>
         <Text style={theme.buttontext}> Next </Text>
+      </TouchableOpacity>}
+      { page === 2 && <TouchableOpacity style={theme.button} onPress={() => setPage(page - 1)}>
+        <Text style={theme.buttontext}> Previous </Text>
       </TouchableOpacity>}
       { page === 2 && <TouchableOpacity style={theme.button} onPress={() => registerUser()}>
         <Text style={theme.buttontext}> Accept </Text>
