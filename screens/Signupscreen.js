@@ -28,7 +28,7 @@ function MultiStepForm(props) {
   }
 
   const steps = [
-    { key: "SignUpOne",
+    { key: 'SignUpOne',
       screen: SignUpOne,
       props: {
         user,
@@ -40,7 +40,7 @@ function MultiStepForm(props) {
       }
     },
     {
-      key: "SignUpTwo",
+      key: 'SignUpTwo',
       screen: SignUpTwo,
       props: {
         checked,
