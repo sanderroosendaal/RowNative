@@ -27,27 +27,38 @@ function MultiStepForm(props) {
     dispatch(myActions.registerUser(payload))
   }
 
+  const steps = [
+    { key: "SignUpOne",
+      screen: SignUpOne,
+      props: {
+        user,
+        firstName,
+        lastName,
+        setUser,
+        setFirstName,
+        setLastName,
+      }
+    },
+    {
+      key: "SignUpTwo",
+      screen: SignUpTwo,
+      props: {
+        checked,
+        setChecked
+      }
+    }
+  ]
+
   return (
     <View>
-      { page === 1 && <SignUpOne
-        username={user}
-        firstName={firstName}
-        lastName={lastName}
-        setUser={setUser}
-        setFirstName={setFirstName}
-        setLastName={setLastName}
-      />}
-      { page === 2 && <SignUpTwo
-        checked={checked}
-        setChecked={setChecked}
-      />}
-      { page != 2 && <TouchableOpacity style={theme.button} onPress={() => setPage(page + 1)}>
-        <Text style={theme.buttontext}> Next </Text>
-      </TouchableOpacity>}
-      { page === 2 && <TouchableOpacity style={theme.button} onPress={() => setPage(page - 1)}>
+      {React.createElement(steps[page].screen,steps[page].props)}
+      { page > 0 && <TouchableOpacity style={theme.button} onPress={() => setPage(page - 1)}>
         <Text style={theme.buttontext}> Previous </Text>
       </TouchableOpacity>}
-      { page === 2 && <TouchableOpacity style={theme.button} onPress={() => registerUser()}>
+      { page < steps.length - 1 && <TouchableOpacity style={theme.button} onPress={() => setPage(page + 1)}>
+        <Text style={theme.buttontext}> Next </Text>
+      </TouchableOpacity>}
+      { page === steps.length - 1 && <TouchableOpacity style={theme.button} onPress={() => registerUser()}>
         <Text style={theme.buttontext}> Accept </Text>
       </TouchableOpacity>}
     </View>
@@ -58,7 +69,7 @@ function SignUpScreen() {
   return (
     <View style={theme.container}>
       <MultiStepForm
-        page="1"
+        page="0"
       />
     </View>
   )
