@@ -6,6 +6,7 @@ import * as myActions from '../actions'
 
 import SignUpOne from './Signupone'
 import SignUpTwo from './Signuptwo'
+import SignUpThree from './Signupthree'
 
 
 import theme from '../theme'
@@ -17,6 +18,10 @@ function MultiStepForm(props) {
   const [user, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [checked, setChecked] = useState(false)
+  const [gender, setGender] = useState('Not Specified')
+  const [weight, setWeight] = useState('HW')
+  const [birthdate, setBirthdate] = useState(new Date())
+
   const dispatch = useDispatch()
 
   const registerUser = () => {
@@ -45,6 +50,15 @@ function MultiStepForm(props) {
     {
       key: 'SignUpTwo',
       screen: SignUpTwo,
+      props: {
+        gender, setGender,
+        weight, setWeight,
+        birthdate, setBirthdate,
+      }
+    },
+    {
+      key: 'SignUpThree',
+      screen: SignUpThree,
       props: {
         checked,
         setChecked
