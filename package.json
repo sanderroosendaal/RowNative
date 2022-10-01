@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-parser": "^7.19.1",
     "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
     "@types/react-native": "^0.66.15",
